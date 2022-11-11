@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        @page {
+            size: 7in 9.25in;
+            margin: 27mm 16mm 27mm 16mm;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            grid-template-rows: auto auto auto auto auto;
+            background-color: #ffffff;
+        }
+        
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            font-size: 12pt;
+            text-align: center;
+            background-image: url(img/rainbow-header-bg.jpg);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="input-area" id="input-area">
+        <h3>Extra Large Modal Example</h3>
+        <p>Click on the button to open the modal.</p>
+
+        <input type="text" name="productName" id="productName" placeholder=" Tên sản phẩm" />
+        <input type="text" name="quantity" id="quantity" placeholder="SL" />
+        <input type="text" name="price" id="price" placeholder=" Gia" />
+        <input type="button" name="btn" id="productName" value="Taoooooooooooooo!!!!!!" onclick="createReport()" />
+
+    </div>
+    <div class="grid-container">
+
+
+    </div>
+
+
+    <script>
+        function createReport() {
+            var productName = $('#productName').val();
+
+            var quantity = $('#quantity').val();
+
+            var price = $('#price').val();
+
+            console.log(productName);
+            console.log(quantity);
+            console.log(price);
+
+            var productNameList = productName.split(";")
+            var priceList = price.split(";")
+
+
+            for (let index = 0; index < productNameList.length; index++) {
+                $('#input-area').hide();
+                $('div').append(
+                    "<p class='grid-item'> "
+
+                    +
+                    productNameList[index] + "</br> Giá: " + priceList[index] + "</p>");
+            }
+
+
+            $('#input-area').hide();
+
+            // window.print();
+
+        }
+    </script>
+
+</body>
+
+</html>
